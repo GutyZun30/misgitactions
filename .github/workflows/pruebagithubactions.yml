@@ -1,29 +1,31 @@
 name: GitHub Actions Practica
 
-on: [push]
+on:
+  push:
 
 jobs:
   explorando-GitHub-Actions:
     runs-on: ubuntu-latest
     steps:
       - name: "El flujo de trabajo ha sido ejecutado en el evento"
-        run: echo "El evento es: ${{ github.event_name }}"
+        run: echo "El evento es:${{github.event_name}}"
 
       - name: "El trabajo se está ejecutando en un servidor"
-        run: echo "El runner OS es: ${{ runner.os }} y hospedado en GitHub"
+        run: echo "El runner OS es:${{ runner.os }} y hospedado en GitHub"
 
       - name: "El nombre del repositorio es"
-        run: echo "Tu repositorio es: ${{ github.repository }}"
+        run: echo "Tu repositorio es:${{ github.repository }}"
 
       - name: "Verificando el código"
         uses: actions/checkout@v2
 
       - name: "Mostrando contenido"
-        run: echo "Tu directorio: ${{ github.workspace }}"
+        run: echo "Tu directorio:${{ github.workspace }}"
 
       - name: "Listar archivos en el repositorio"
-        run: ls ${{ github.workspace }}
+        run: ls "${{ github.workspace }}"
 
       - name: "Estado final"
-        run: echo "El estado del trabajo es: ${{ job.status }}"
+        run: echo "El estado del trabajo es:${{ job.status }}"
+
 
